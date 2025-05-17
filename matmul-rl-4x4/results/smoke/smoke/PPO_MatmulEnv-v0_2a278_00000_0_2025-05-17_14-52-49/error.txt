@@ -1,0 +1,46 @@
+Failure # 1 (occurred at 2025-05-17_14-52-51)
+The actor died unexpectedly before finishing this task.
+	class_name: PPO
+	actor_id: 9e02cb2e7803a016414e58ae01000000
+	pid: 1461921
+	namespace: 5315bba0-c4d1-4c62-901d-3ee18362be1c
+	ip: 10.139.239.36
+The actor is dead because its worker process has died. Worker exit type: SYSTEM_ERROR Worker exit detail: Worker exits unexpectedly. Worker exits with an exit code None. Traceback (most recent call last):
+  File "python/ray/_raylet.pyx", line 1873, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 1981, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 1880, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 1820, in ray._raylet.execute_task.function_executor
+  File "/work/git/alphatensor/.venv/lib/python3.12/site-packages/ray/_private/function_manager.py", line 689, in actor_method_executor
+    return method(__ray_actor, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/git/alphatensor/.venv/lib/python3.12/site-packages/ray/util/tracing/tracing_helper.py", line 463, in _resume_span
+    return method(self, *_args, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/git/alphatensor/.venv/lib/python3.12/site-packages/ray/rllib/algorithms/algorithm.py", line 471, in __init__
+    self._env_id, self.env_creator = self._get_env_id_and_creator(
+                                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/git/alphatensor/.venv/lib/python3.12/site-packages/ray/rllib/algorithms/algorithm.py", line 3099, in _get_env_id_and_creator
+    return env_specifier, _global_registry.get(ENV_CREATOR, env_specifier)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/git/alphatensor/.venv/lib/python3.12/site-packages/ray/tune/registry.py", line 275, in get
+    return pickle.loads(value)
+           ^^^^^^^^^^^^^^^^^^^
+ModuleNotFoundError: No module named 'env'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "python/ray/_raylet.pyx", line 2300, in ray._raylet.task_execution_handler
+  File "python/ray/_raylet.pyx", line 2173, in ray._raylet.execute_task_with_cancellation_handler
+  File "python/ray/_raylet.pyx", line 1822, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 1823, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 2067, in ray._raylet.execute_task
+  File "python/ray/_raylet.pyx", line 1053, in ray._raylet.store_task_errors
+  File "/work/git/alphatensor/.venv/lib/python3.12/site-packages/ray/util/tracing/tracing_helper.py", line 463, in _resume_span
+    return method(self, *_args, **_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/work/git/alphatensor/.venv/lib/python3.12/site-packages/ray/rllib/algorithms/algorithm.py", line 3628, in __repr__
+    if self.config.enable_rl_module_and_learner:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'NoneType' object has no attribute 'enable_rl_module_and_learner'
+An unexpected internal error occurred while the worker was executing a task.

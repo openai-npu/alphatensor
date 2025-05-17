@@ -1,0 +1,13 @@
+{
+  "clip_param": 0.2,
+  "disable_env_checking": true,
+  "env": "MatmulEnv-v0",
+  "framework": "torch",
+  "gamma": 0.99,
+  "lambda": 0.95,
+  "lr": 0.0003,
+  "num_gpus": 1,
+  "num_workers": 8,
+  "rollout_fragment_length": 128,
+  "train_batch_size": 4096
+}

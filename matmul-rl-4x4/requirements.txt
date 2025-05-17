@@ -1,0 +1,13 @@
+torch>=2.3
+gymnasium
+ray[rllib]
+sympy
+numpy
+wandb
+rich
+msgpack
+protobuf
+pyyaml
+requests
+packaging
+googleapis-common-protos
